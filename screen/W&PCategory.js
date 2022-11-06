@@ -11,7 +11,7 @@ export default function WandPCategory(navigate) {
    const onPress = () => {
    navigation.navigate('#');
   };
-  return (<Text></Text>  );
+  return (<View></View>  );
 };
 
 const styles = StyleSheet.create({})
