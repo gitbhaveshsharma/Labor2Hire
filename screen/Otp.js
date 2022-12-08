@@ -1,14 +1,17 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import 'react-native-gesture-handler';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 import { SafeAreaView, StyleSheet, Image, TextInput, View, Pressable, Text} from "react-native";
 
-const Otp = () => {
+const Otp = ({navigation}) => {
   const [number, onChangeNumber] = React.useState(null);
-  const [otp, onPress] = React.useState(null);
   const {t} = useTranslation();
-
+  const onPress = () => {
+    navigation.navigate('WorkLook');
+  };
   return (
-    <>
+    <>   
     <View style={styles.container}>
     <SafeAreaView >
       <TextInput
