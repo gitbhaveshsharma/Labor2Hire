@@ -1,24 +1,32 @@
-import React from 'react'
+import React from 'react';
+import { SafeAreaView, StyleSheet, Image, TextInput, View, Pressable, Text} from "react-native";
 import { useTranslation } from "react-i18next";
 import 'react-native-gesture-handler';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
-import { StyleSheet, Text, View,Pressable} from 'react-native'
-const data = [
-  { provider: "Provider", worker: "Worker" },
-];
-export default function WandPCategory(navigate) {
-   const {t} = useTranslation();
-return (
-    <View style={styles.container}>
-      
-          <Pressable style={styles.bigblue}
-            onPress={() => setLanguage(language.code)} >
-            <Text style={styles.text}>worker</Text>
+export default function WorkAndProvider({navigation}) {
+  const onWorker = () => {
+   navigation.navigate('WorkLook');
+  };
+  const onProvider = () => {
+   navigation.navigate('WorkerLook');
+  };
+  return (
+    <View style={styles.container}>  
+    <Text style={styles.title}> Select Your </Text>
+    <Text style={styles.title2}> Category </Text>
+    <View style={styles.workAndProvider}>
+      <Pressable onPress={onWorker}>
+            <Text style={styles.text}>Work</Text>
           </Pressable>
-          
+      
+       <Pressable onPress={onProvider}>
+            <Text style={styles.text}>Provider</Text>
+        </Pressable>
+        </View>
     </View>
   );
-};
+}
+
 const styles = StyleSheet.create({
 container: {
     backgroundColor: '#FFFFFF',
@@ -26,7 +34,6 @@ container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingBottom:40,
   },
   title: {
     fontSize:50,
@@ -36,16 +43,22 @@ container: {
   },
   title2: {
     fontSize:58,
-    marginBottom:20
+    marginBottom:20,
+    fontWeight:'bold',
+    color:'#000000',
   },
-  text: {
+workAndProvider:{
+  flexWrap:'wrap',
+  flexDirection:'row'
+},
+ text: {
     fontFamily:'Arial',
     fontSize: 23,
-    width:252,
+    width:150,
     height:59,
     textAlign:'center',
     padding:5,
-    margin:20,
+    margin:10,
     color: 'blue',
     fontWeight: 'bold',
     color: "#0088F1",
@@ -56,26 +69,4 @@ container: {
     paddingVertical: 14,
     letterSpacing:5,
   },
-  selectedText: {
-    fontSize: 23,
-    width:254,
-    height:59,
-    fontWeight: "600",
-    textAlign:'center',
-    color: "#ffffff",
-    backgroundColor:'#0088F1',
-    fontWeight:'bold',
-    borderColor: '#002C6E',
-    borderRadius:10,
-    paddingVertical: 13,
-    letterSpacing:1,
-    shadowColor: '#000000',
-    shadowOffset: {width: 20, height: 40},
-    shadowOpacity: 0.2,
-    elevation: 10,
-    shadowRadius: 10,
-  },
-  bigblue: {
-    
-        }
 });

@@ -8,7 +8,7 @@ const Otp = ({navigation}) => {
   const [number, onChangeNumber] = React.useState(null);
   const {t} = useTranslation();
   const onPress = () => {
-    navigation.navigate('WorkLook');
+    navigation.navigate('WorkAndProvider');
   };
   return (
     <>   
@@ -25,7 +25,7 @@ const Otp = ({navigation}) => {
         />
     </SafeAreaView>
         <Pressable style={[styles.button, styles.shadowProp]} onPress={onPress}>
-<Text style={styles.text}>आगे बढ़े</Text>
+<Text style={styles.text}>{t('common:next')}</Text>
     </Pressable>
        </View>
        <View style={styles.lableB}>

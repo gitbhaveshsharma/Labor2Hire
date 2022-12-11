@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from "react";
 import { useTranslation } from "react-i18next";
 import 'react-native-gesture-handler';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
@@ -14,45 +14,50 @@ import {
 
 const UselessTextInput = ({navigation}) => {
   const [text, onChangeText] = React.useState('');
-  const [number, onChangeNumber] = React.useState(null);
+  const [user, setUserData] = React.useState({ name: '', username:'',password:'',confirmpassword:''});
+    const {t} = useTranslation();
   const onPress = () => {
-     navigation.navigate('UserDetails');
+     navigation.navigate('Dashboard');
   };
   return (
     <SafeAreaView style={styles.container}>
     <Text style={styles.title}>Alternative Login Details</Text>
     <View>
-      <Text style={styles.inputLeble}>E-mail</Text>
+      <Text style={styles.inputLeble}>{t('common:email')}</Text>
       <TextInput
         style={styles.input}
-        onChangeText={onChangeNumber}
-        value={number}
+         onChangeText={(text) => setUserData({...user, name: text })}
+         value={user.name}
         placeholder=""
       />
-      <Text style={styles.inputLeble}>Username</Text>
+      <Text style={styles.inputLeble}>{t('common:userName')}</Text>
       <TextInput
         style={styles.input}
-        onChangeText={onChangeNumber}
-        value={number}
+        onChangeText={(text) => setUserData({...user, username: text })}
+         value={user.username}
         placeholder=""
       />
-      <Text style={styles.inputLeble}>Passwords</Text>
+      <Text style={styles.inputLeble}>{t('common:password')}</Text>
       <TextInput
+      secureTextEntry={true}
+      textContentType={'password'}
         style={styles.input}
-        onChangeText={onChangeNumber}
-        value={number}
+        onChangeText={(text) => setUserData({...user, password: text })}
+         value={user.password}
         placeholder=""
       />
-      <Text style={styles.inputLeble}>Confirm Password</Text>
+      <Text style={styles.inputLeble}>{t('common:confirmPassword')}</Text>
       <TextInput
+      secureTextEntry={true}
+      textContentType={'password'}
         style={styles.input}
-        onChangeText={onChangeNumber}
-        value={number}
+        onChangeText={(text) => setUserData({...user, confirmpassword: text })}
+         value={user.confirmpassword}
         placeholder=""
       />
     </View>
       <Pressable style={[styles.button, styles.shadowProp]} onPress={onPress}>
-        <Text style={styles.text}>Next</Text>
+        <Text style={styles.text}>{t('common:next')}</Text>
       </Pressable>
     </SafeAreaView>
   );
@@ -79,7 +84,7 @@ const styles = StyleSheet.create({
     width: 310,
     borderWidth: 2,
     borderRadius: 10,
-    bborderColor: '#002C6E',
+    borderColor: '#002C6E',
     padding: 10, 
     textAlign: "center",  
     fontFamily: "Segoe UI", 

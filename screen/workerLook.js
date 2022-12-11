@@ -29,7 +29,7 @@ const DropdownComponent = ({navigation}) => {
   const [isFocus, setIsFocus] = useState(false);
   const {t} = useTranslation();
   const onPress = () => {
-     navigation.navigate('WorkFor');
+     navigation.navigate('ProviderWorker');
   };
   const renderLabel = () => {
     if (value || isFocus) {
@@ -39,7 +39,7 @@ const DropdownComponent = ({navigation}) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.lalala}>{t('common:whatKindOfWorkDoYouDo')}</Text>
+      <Text style={styles.lalala}>{t('common:whatKindOfWorkerYoulook')}</Text>
       <View style={styles.Wbox}>
         {renderLabel()}
         <Dropdown

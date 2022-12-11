@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from "react-i18next";
 import 'react-native-gesture-handler';
-// import { Icon } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {
@@ -20,11 +19,10 @@ const UselessTextInput = ({navigation}) => {
   const [number, onChangeNumber] = React.useState(null);
   const {t} = useTranslation();
   const onPress = () => {
-     navigation.navigate('Aadhar');
+     navigation.navigate('WorkerDashboard');
   };
   return (
     <SafeAreaView style={styles.container}>
-    <Text style={styles.title}>Current Address</Text>
     <View>
       <Text style={styles.inputLeble}>{t('common:pinCode')}</Text>
       <TextInput
@@ -65,7 +63,6 @@ const UselessTextInput = ({navigation}) => {
         />
       <Text style={styles.locationText}>click for location</Text>
       </View>
-    
       <Pressable style={[styles.button, styles.shadowProp]} onPress={onPress}>
         <Text style={styles.text}>{t('common:next')}</Text>
       </Pressable>
@@ -76,7 +73,6 @@ const UselessTextInput = ({navigation}) => {
 const styles = StyleSheet.create({
     container: {
     backgroundColor: 'white',
-    height: 100,
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
@@ -84,7 +80,7 @@ const styles = StyleSheet.create({
   },
    title: {
     fontSize:25,
-    marginBottom:25,
+    marginBottom:40,
     fontWeight:'700',
     color:'#000000',
   },

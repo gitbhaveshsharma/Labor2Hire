@@ -3,7 +3,7 @@ import { SafeAreaView, StyleSheet, Image, TextInput, View, Pressable, Text} from
 import { useTranslation } from "react-i18next";
 import 'react-native-gesture-handler';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
-export default function mobileNumber({navigation}) {
+export default function MobileNumber({navigation}) {
    const [number, onChangeNumber] = React.useState(null);
    const {t} = useTranslation();
    const onPress = () => {
